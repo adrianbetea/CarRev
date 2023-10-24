@@ -27,24 +27,26 @@ if (!isset($_SESSION['admin_name'])) {
 
 <body>
 
-    <nav class="top-nav">
-        <ul>
-            <li>
-                <i class='bx bxs-car logo'></i>
-                <a href="admin_page.php"><span class="logo">CarRev</a></span></a>
-            </li>
-            <li><a href="">View Cars</a></li>
-            <li><a href="">Add Car</a></li>
-            <li><a href="logout.php" class="btn">logout</a></li>
-            <li>
-                <span class="user"><?php echo $_SESSION['admin_name'] ?></span>
-            </li>
+    <header>
+        <nav class="top-nav">
+            <ul>
+                <li>
+                    <i class='bx bxs-car logo'></i>
+                    <a href="admin_page.php"><span class="logo">CarRev</a></span></a>
+                </li>
+                <li><a href="">View Cars</a></li>
+                <li><a href="">Add Car</a></li>
+                <li><a href="logout.php" class="btn">logout</a></li>
+                <li>
+                    <span class="user"><?php echo $_SESSION['admin_name'] ?></span>
+                </li>
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="container">
+    <main>
+        <div class="about-container">
             <div class="welcome abt">
                 <p>
                     Welcome to <span>CarRev</span>, your ultimate destination for all things automotive.
@@ -69,10 +71,30 @@ if (!isset($_SESSION['admin_name'])) {
                 </p>
             </div>
 
-
         </div>
 
-    </div>
+    </main>
+
+    <br><br>
+
+    <footer>
+        <span>
+            <i class='bx bxs-car logo'></i>
+            <span class="logo">CarRev</span>
+        </span>
+        <span>
+            <p>email: </p>
+            <a href="mailto:carrev@support.com">carrev@support.com</a>
+            <i class='bx bxs-contact contact'></i>
+        </span>
+
+        <span>
+            <p>phone: </p>
+            <a href="tel:+4025 2552">+4025 2552</a>
+        </span>
+
+    </footer>
+
 </body>
 
 </html>
