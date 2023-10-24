@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.top-nav {
+  background-color: #333;
+  padding: 10px 15px;
+}
+
+.top-nav ul li {
+  display: inline;
+  margin-right: 30px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.top-nav ul li .logo {
+  font-size: 30px;
+  color: tomato;
+}
+
+.top-nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.top-nav ul li .user {
+  font-size: 25px;
+  background: #333;
+  color: tomato;
+  float: right;
+  padding: 5px;
+  margin-right: 50px;
+}
+
+.top-nav ul li .btn {
+  border-radius: 10px;
+  margin-bottom: 6px;
+  font-size: 25px;
+  background: #333;
+  color: #fff;
+  text-transform: capitalize;
+  float: right;
+  padding: 4px;
+}
+
+.top-nav ul li .btn:hover {
+  background: tomato;
+}
+
+.container {
+  min-height: 500px;
+  display: grid;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.container .abt {
+  width: 700px;
+  backdrop-filter: blur(2px);
+}
+
+.container .abt p {
+  font-size: 21px;
+  margin: 10px 50px 10px 50px;
+  color: rgb(198, 184, 184);
+}
+
+.container .abt p span {
+  color: tomato;
+}
+
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 60px;
+  background: rgb(138, 34, 16);
+}
+
+.form-container form {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  background: #712525;
+  text-align: center;
+  width: 500px;
+}
+
+.form-container form h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.form-container form input,
+.form-container form select {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 15px;
+  margin: 10px 0;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.form-container form select option {
+  background: #fff;
+}
+
+.form-container form .form-btn {
+  background: rgb(138, 34, 16);
+  color: tomato;
+  text-transform: capitalize;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form-container form .form-btn:hover {
+  background: tomato;
+  color: #fff;
+}
+
+.form-container form p {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.form-container form p a {
+  color: tomato;
+}
+
+.form-container form .error-msg {
+  margin: 10px 0;
+  display: block;
+
+  color: #d31c1c;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+}
