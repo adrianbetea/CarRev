@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin_name'])) {
                     <i class='bx bxs-car logo'></i>
                     <a href="admin_page.php"><span class="logo">CarRev</a></span></a>
                 </li>
-                <li><a href="">View Cars</a></li>
+                <li><a href="view_cars_admin.php">View Cars</a></li>
                 <li><a href="">Add Car</a></li>
                 <li><a href="logout.php" class="btn">logout</a></li>
                 <li>

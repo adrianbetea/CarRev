@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_name'])) {
                     <i class='bx bxs-car logo'></i>
                     <a href="user_page.php"><span class="logo">CarRev</span></a>
                 </li>
-                <li><a href="">View Cars</a></li>
+                <li><a href="view_cars_user.php">View Cars</a></li>
                 <li><a href="logout.php" class="btn">logout</a></li>
                 <li>
                     <span class="user"><?php echo $_SESSION['user_name'] ?></span>
