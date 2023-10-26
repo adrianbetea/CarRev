@@ -51,7 +51,9 @@ if (!isset($_SESSION['admin_name'])) {
             <i class="bx bx-search-alt-2 search-button"></i>
         </section>
         <section class="view-container">
-            <div class="car-container"></div>
+            <div class="car-container">
+                <div class="car-image"></div>
+            </div>
             <div class="car-container"></div>
             <div class="car-container"></div>
             <div class="car-container"></div>

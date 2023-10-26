@@ -34,9 +34,15 @@ body {
 .view-container .car-container {
   width: 328px;
   height: 400px;
-  background-color: black;
+  background-color: white;
   margin: 35px 25px;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+
+.view-container .car-container .car-img {
+  background-color: aquamarine;
+  height: 10px;
+  width: 100%;
 }
