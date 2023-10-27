@@ -44,20 +44,29 @@ if (!isset($_SESSION['user_name'])) {
         </nav>
     </header>
 
+
     <main>
         <section class="search-container">
             <input autocomplete="on" type="search" name="search" placeholder="Search your car" class="search-bar">
             <i class="bx bx-search-alt-2 search-button"></i>
         </section>
         <section class="view-container">
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
-            <div class="car-container"></div>
+            <?php
+            $sql = "SELECT * FROM cars ORDER BY car_id";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <div class="car-container">
+                        <div class="car-img">
+                            <img src="uploads/<?= $row['car_img'] ?>" alt="">
+                        </div>
+                        <div class="car-name"><?= $row['car_name'] ?></div>
+                        <div class="car-description"><?= $row['car_description'] ?></div>
+                        <div class="reviews"><a href="#">View Reviews</a><a href="#">Add Review</a></div>
+                    </div>
+            <?php }
+            } ?>
+
         </section>
     </main>
 

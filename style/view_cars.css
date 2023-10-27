@@ -33,16 +33,61 @@ body {
 
 .view-container .car-container {
   width: 328px;
-  height: 400px;
-  background-color: white;
+  height: 440px;
+  background-color: black;
   margin: 35px 25px;
   align-items: center;
+  align-content: stretch;
   justify-content: center;
   border-radius: 10px;
 }
 
 .view-container .car-container .car-img {
-  background-color: aquamarine;
-  height: 10px;
-  width: 100%;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  margin: 10px 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-container .car-container .car-img img {
+  max-height: 200px;
+  margin: auto;
+}
+.view-container .car-container .car-name {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.view-container .car-container .car-description {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  height: 140px;
+  padding-top: 10px;
+}
+
+.view-container .car-container .reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.view-container .car-container .reviews a {
+  background-color: rgb(182, 49, 49);
+  color: rgb(195, 132, 132);
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.view-container .car-container .reviews a:hover {
+  background-color: rgb(110, 28, 28);
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 20px;
+  text-decoration: none;
 }
