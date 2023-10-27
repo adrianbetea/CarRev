@@ -1,0 +1,116 @@
+.about-car {
+  width: 90%;
+  transform: translate(5%);
+  height: auto;
+  background-color: rgb(172, 86, 86);
+  margin: 40px 0px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  gap: 10px 20px;
+}
+
+.about-car img {
+  width: 300px;
+  height: 200px;
+}
+
+.about-car .car-name {
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.about-car .review-added {
+  height: 100px;
+  display: flex;
+  border: 2px solid;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: brown;
+  color: rgb(94, 32, 21);
+}
+
+.about-car .review-added:hover {
+  height: 100px;
+  display: flex;
+  border: 2px solid;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: rgb(110, 28, 28);
+  color: rgb(205, 98, 79);
+}
+
+.about-car .review-added a {
+  text-decoration: none;
+  padding: 10px;
+  color: rgb(94, 32, 21);
+}
+
+.about-car .review-added a:hover {
+  text-decoration: none;
+  padding: 10px;
+  color: rgb(205, 98, 79);
+}
+.about-car .car-description {
+  font-size: 20px;
+}
+
+.review-container {
+  width: 90%;
+  transform: translate(5%);
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px 10px;
+  margin-bottom: 40px;
+}
+
+.review-container .review-content {
+  width: auto;
+  height: auto;
+  background-color: rgb(146, 111, 111);
+  border-radius: 15px;
+  padding: 20px 50px;
+}
+
+.review-container .review-content .review-user {
+  font-size: 33px;
+  margin-bottom: 10px;
+}
+.review-container .review-content .review-description {
+  font-size: 25px;
+  font-style: italic;
+}
+
+.review-container .review-content .update-delete {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+}
+
+.review-container .review-content .update-delete .du {
+  background-color: rgb(182, 49, 49);
+  color: rgb(195, 132, 132);
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.review-container .review-content .update-delete .du:hover {
+  background-color: rgb(110, 28, 28);
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  text-decoration: none;
+}

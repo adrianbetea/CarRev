@@ -75,7 +75,6 @@ if (!isset($_SESSION['user_name'])) {
         </div>
     </main>
 
-    <br><br>
 
     <footer>
         <span>

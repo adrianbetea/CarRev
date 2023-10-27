@@ -4,9 +4,10 @@
 
 session_start();
 
-if (!isset($_SESSION['admin_name'])) {
-    header('location:login_form.php');
-}
+// save car name  and admin name variables
+$car_name = $_GET['car_name'];
+$admin = $_SESSION['admin_name'];
+
 
 ?>
 
@@ -21,6 +22,7 @@ if (!isset($_SESSION['admin_name'])) {
     <!-- css file link -->
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/view_cars.css">
+    <link rel="stylesheet" href="./style/car_reviews.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
@@ -45,22 +47,43 @@ if (!isset($_SESSION['admin_name'])) {
     </header>
 
     <main>
-        <section class="view-container">
+        <section class="about-car">
             <?php
-            $sql = "SELECT * FROM cars ORDER BY car_id";
+            $sql = "SELECT * FROM cars WHERE car_name='$car_name'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <div class="car-container">
-                        <div class="car-img">
-                            <img src="uploads/<?= $row['car_img'] ?>" alt="">
-                        </div>
+                    <div class="car-img">
+                        <img src="uploads/<?= $row['car_img'] ?>" alt="">
+                    </div>
+                    <div>
                         <div class="car-name"><?= $row['car_name'] ?></div>
                         <div class="car-description"><?= $row['car_description'] ?></div>
-                        <div class="reviews"><a href="car_reviews_admin.php?car_name=<?= $row['car_name'] ?>">View Reviews</a></div>
+
                     </div>
-            <?php }
+            <?php
+
+                }
             } ?>
+        </section>
+        <section class="review-container">
+
+
+            <?php
+            $sql = "SELECT * FROM reviews WHERE car_name='$car_name' ORDER BY review_id";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <form action="" method="POST">
+                        <div class="review-content">
+                            <div class="review-user">FROM:&nbsp;<span class="review-user"><?= $row['username'] ?></span></div>
+                            <div class="review-description"><?= $row['review_content'] ?></div>
+                        </div>
+                    </form>
+            <?php
+                }
+            }
+            ?>
 
         </section>
     </main>

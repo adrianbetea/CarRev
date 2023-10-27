@@ -75,8 +75,6 @@ if (!isset($_SESSION['admin_name'])) {
 
     </main>
 
-    <br><br>
-
     <footer>
         <span>
             <i class='bx bxs-car logo'></i>
