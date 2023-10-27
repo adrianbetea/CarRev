@@ -4,6 +4,8 @@
 
 session_start();
 
+$user = $_SESSION['user_name'];
+
 if (!isset($_SESSION['user_name'])) {
     header('location:login_form.php');
 }
@@ -46,23 +48,21 @@ if (!isset($_SESSION['user_name'])) {
 
 
     <main>
-        <section class="search-container">
-            <input autocomplete="on" type="search" name="search" placeholder="Search your car" class="search-bar">
-            <i class="bx bx-search-alt-2 search-button"></i>
-        </section>
         <section class="view-container">
             <?php
-            $sql = "SELECT * FROM cars ORDER BY car_id";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) { ?>
+            $sql_cars = "SELECT * FROM cars ORDER BY car_id";
+            $cars_table = mysqli_query($conn, $sql_cars);
+
+
+            if (mysqli_num_rows($cars_table) > 0) {
+                while ($cars_row = mysqli_fetch_assoc($cars_table)) { ?>
                     <div class="car-container">
                         <div class="car-img">
-                            <img src="uploads/<?= $row['car_img'] ?>" alt="">
+                            <img src="uploads/<?= $cars_row['car_img'] ?>" alt="">
                         </div>
-                        <div class="car-name"><?= $row['car_name'] ?></div>
-                        <div class="car-description"><?= $row['car_description'] ?></div>
-                        <div class="reviews"><a href="#">View Reviews</a><a href="#">Add Review</a></div>
+                        <div class="car-name"><?= $cars_row['car_name'] ?></div>
+                        <div class="car-description"><?= $cars_row['car_description'] ?></div>
+                        <div class="reviews"><a href="car_reviews_user.php?car_name=<?= $cars_row['car_name'] ?>">View Reviews</a></div>
                     </div>
             <?php }
             } ?>
