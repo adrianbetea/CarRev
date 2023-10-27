@@ -56,7 +56,7 @@
   background: tomato;
 }
 
-.container {
+.about-container {
   min-height: 500px;
   display: grid;
   align-items: center;
@@ -64,18 +64,18 @@
   padding-bottom: 20px;
 }
 
-.container .abt {
+.about-container .abt {
   width: 700px;
   backdrop-filter: blur(2px);
 }
 
-.container .abt p {
-  font-size: 21px;
+.about-container .abt p {
+  font-size: 23px;
   margin: 10px 50px 10px 50px;
   color: rgb(198, 184, 184);
 }
 
-.container .abt p span {
+.about-container .abt p span {
   color: tomato;
 }
 
@@ -150,4 +150,29 @@
   border-radius: 5px;
   font-size: 20px;
   padding: 10px;
+}
+
+footer {
+  background-color: #712525;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  justify-content: space-around;
+}
+
+footer span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+footer span .logo {
+  font-size: 30px;
+  color: red;
+}
+
+footer span a:hover {
+  color: #d31c1c;
 }
