@@ -8,6 +8,14 @@ if (!isset($_SESSION['admin_name'])) {
     header('location:login_form.php');
 }
 
+
+if (isset($_GET['id'])) {
+    $car_id = $_GET['id'];
+
+    $delete_result = mysqli_query($conn, "DELETE FROM `cars` WHERE `car_id` ='$car_id'");
+    header('location:view_cars_admin.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +29,7 @@ if (!isset($_SESSION['admin_name'])) {
     <!-- css file link -->
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/view_cars.css">
+    <link rel="stylesheet" href="./style/car_reviews.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
@@ -52,12 +61,17 @@ if (!isset($_SESSION['admin_name'])) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
                     <div class="car-container">
+
                         <div class="car-img">
                             <img src="uploads/<?= $row['car_img'] ?>" alt="">
                         </div>
-                        <div class="car-name"><?= $row['car_name'] ?></div>
+                        <div class="car-name" id="car_n"><?= $row['car_name'] ?></div>
                         <div class="car-description"><?= $row['car_description'] ?></div>
-                        <div class="reviews"><a href="car_reviews_admin.php?car_name=<?= $row['car_name'] ?>">View Reviews</a></div>
+                        <div class="reviews">
+                            <a class="review" href="car_reviews_admin.php?car_name=<?= $row['car_name'] ?>">View Reviews</a>
+                            <a class="review" href="view_cars_admin.php?id=<?= $row['car_id'] ?>">Delete Car</a>
+                        </div>
+
                     </div>
             <?php }
             } ?>
@@ -86,5 +100,6 @@ if (!isset($_SESSION['admin_name'])) {
     </footer>
 
 </body>
+
 
 </html>
