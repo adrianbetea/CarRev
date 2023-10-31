@@ -75,7 +75,7 @@ body {
   justify-content: space-around;
 }
 
-.view-container .car-container .reviews a {
+.view-container .car-container .reviews .review {
   background-color: rgb(182, 49, 49);
   color: rgb(195, 132, 132);
   border-radius: 10px;
@@ -84,7 +84,7 @@ body {
   text-decoration: none;
 }
 
-.view-container .car-container .reviews a:hover {
+.view-container .car-container .reviews .review:hover {
   background-color: rgb(110, 28, 28);
   border-radius: 10px;
   padding: 3px;
