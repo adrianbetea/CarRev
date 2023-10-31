@@ -37,6 +37,7 @@ $admin = $_SESSION['admin_name'];
                 </li>
                 <li><a href="view_cars_admin.php">View Cars</a></li>
                 <li><a href="add_car.php">Add Car</a></li>
+                <li><a href="view_users_admin.php">View Users</a></li>
                 <li><a href="logout.php" class="btn">logout</a></li>
                 <li>
                     <span class="user"><?php echo $_SESSION['admin_name'] ?></span>

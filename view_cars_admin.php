@@ -12,10 +12,28 @@ if (!isset($_SESSION['admin_name'])) {
 if (isset($_GET['id'])) {
     $car_id = $_GET['id'];
 
+    $sql = "SELECT * FROM cars WHERE car_id='$car_id'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if (file_exists("./uploads/" . $row['car_img'])) {
+                unlink("./uploads/" . $row['car_img']);
+            }
+        }
+    }
+
+    $car_select = "SELECT car_name FROM cars WHERE car_id='$car_id'";
+    $car_result = mysqli_query($conn, $car_select);
+    $car_row = mysqli_fetch_assoc($car_result);
+    $car_name = $car_row['car_name'];
+
+
+    // delete all reviews from deleted car
+    $delete_reviews = mysqli_query($conn, "DELETE FROM `reviews` WHERE `car_name`='$car_name'");
+    // delete the car itself
     $delete_result = mysqli_query($conn, "DELETE FROM `cars` WHERE `car_id` ='$car_id'");
     header('location:view_cars_admin.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +62,7 @@ if (isset($_GET['id'])) {
                 </li>
                 <li><a href="view_cars_admin.php">View Cars</a></li>
                 <li><a href="add_car.php">Add Car</a></li>
+                <li><a href="view_users_admin.php">View Users</a></li>
                 <li><a href="logout.php" class="btn">logout</a></li>
                 <li>
                     <span class="user"><?php echo $_SESSION['admin_name'] ?></span>

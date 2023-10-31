@@ -1,0 +1,37 @@
+.view-container p {
+  padding: 30px 0px;
+  font-size: 40px;
+  width: 50%;
+  transform: translate(90%);
+}
+
+.view-container table {
+  width: 94%;
+  transform: translate(3%);
+  text-align: center;
+  background-color: #197171;
+}
+
+.view-container table,
+th,
+td {
+  border: 1px solid;
+}
+
+.view-container table th {
+  height: 40px;
+}
+
+.view-container table td {
+  height: 60px;
+}
+
+.view-container table td a {
+  text-decoration: none;
+  color: tomato;
+  font-size: 22px;
+}
+
+.view-container table td a:hover {
+  color: bisque;
+}

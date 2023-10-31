@@ -62,7 +62,7 @@ if (!isset($_SESSION['user_name'])) {
                         </div>
                         <div class="car-name"><?= $cars_row['car_name'] ?></div>
                         <div class="car-description"><?= $cars_row['car_description'] ?></div>
-                        <div class="reviews"><a href="car_reviews_user.php?car_name=<?= $cars_row['car_name'] ?>">View Reviews</a></div>
+                        <div class="reviews"><a class="review" href="car_reviews_user.php?car_name=<?= $cars_row['car_name'] ?>">View Reviews</a></div>
                     </div>
             <?php }
             } ?>
