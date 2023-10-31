@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
     </header>
 
     <main>
-        <section class="view-container">
+        <section class="view-container" id="users">
             <p>
                 USERS
             </p>
@@ -79,6 +79,7 @@ if (isset($_GET['id'])) {
                         <th>username</th>
                         <th>email</th>
                         <th>Number of reviews</th>
+                        <th>Reviews removed</th>
                         <th>remove user</th>
                     </tr>
                 </thead>
@@ -110,6 +111,9 @@ if (isset($_GET['id'])) {
                                     echo "<td><div>Numer of Reviews: " . $review_row[0] . "</div></td>";
                                     ?>
                                     <td>
+                                        <div><?= $user_row['reviews_removed'] ?></div>
+                                    </td>
+                                    <td>
                                         <a href="view_users_admin.php?id=<?= $user_row['user_id'] ?>">Remove</a>
                                     </td>
                                 </tr>
@@ -122,6 +126,46 @@ if (isset($_GET['id'])) {
                 </tbody>
             </table>
 
+        </section>
+
+        <section class="view-container" id="banned">
+            <p>
+                BANNED USERS
+            </p>
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>username</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $banned_select = "SELECT * FROM bannedusers ORDER BY banneduser_id";
+                    $banned_result = mysqli_query($conn, $banned_select);
+
+
+
+                    if (mysqli_num_rows($banned_result) > 0) {
+                        while ($banned_row = mysqli_fetch_assoc($banned_result)) { ?>
+
+                            <tr>
+                                <td>
+                                    <div class="username"><?= $banned_row['username'] ?></div>
+                                </td>
+
+                                <td>
+                                    <div class="email"><?= $banned_row['email'] ?></div>
+                                </td>
+
+                            </tr>
+
+                    <?php }
+                    } ?>
+
+                </tbody>
+            </table>
         </section>
     </main>
 
