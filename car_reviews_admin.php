@@ -8,6 +8,33 @@ session_start();
 $car_name = $_GET['car_name'];
 $admin = $_SESSION['admin_name'];
 
+if (isset($_GET['username'])) {
+    $username = $_GET['username'];
+
+    // first increment reviews_removed in users table where username = $username
+    $user_select = "SELECT email,reviews_removed FROM users WHERE username='$username'";
+    $user_result = mysqli_query($conn, $user_select);
+    if (mysqli_num_rows($user_result) > 0) {
+        $user_row = mysqli_fetch_assoc($user_result);
+        $email = $user_row['email'];
+        $removed_reviews = $user_row['reviews_removed'] + 1;
+        // check if user had 3 reviews removed => if true then ban user and delete all it's reviews
+        if ($removed_reviews == 3) {
+            // insert email and username into banned users
+            $insert_banned = mysqli_query($conn, "INSERT INTO `bannedusers`(`email`, `username`) VALUES ('$email', '$username')");
+            // remove user from users
+            // remove all reviews from that user
+            $remove_reviews_from_user = mysqli_query($conn, "DELETE FROM reviews WHERE username='$username'");
+            $remove_user = mysqli_query($conn, "DELETE FROM users WHERE username='$username'");
+        } else {
+            // increment removed reviews
+            $user_update = mysqli_query($conn, "UPDATE users SET reviews_removed='$removed_reviews' WHERE username='$username'");
+            // delete review 
+            $review_delete = mysqli_query($conn, "DELETE FROM reviews WHERE username='$username' && car_name='$car_name'");
+        }
+    }
+    //header('location:car_reviews_admin.php');
+}
 
 ?>
 
@@ -79,7 +106,12 @@ $admin = $_SESSION['admin_name'];
                         <div class="review-content">
                             <div class="review-user">FROM:&nbsp;<span class="review-user"><?= $row['username'] ?></span></div>
                             <div class="review-description"><?= $row['review_content'] ?></div>
-                        </div>
+                            <div class="update-delete">
+                                <a class="du" href="car_reviews_admin.php?car_name=<?= $car_name ?>&username=<?= $row['username'] ?>">Delete Review</a>
+                            </div>
+                    </form>
+                    </div>
+                    </div>
                     </form>
             <?php
                 }

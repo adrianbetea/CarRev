@@ -17,13 +17,27 @@ if (isset($_POST['submit'])) {
         $error[] = 'user already exist!';
     } else {
 
-        if ($password != $cpassword) {
+        $banned_result = mysqli_query($conn, "SELECT * FROM bannedusers ORDER BY banneduser_id");
+        $banned_emails = array();
+        // create array with banned emails and add emails from database(banneduser email)
+        if (mysqli_num_rows($banned_result) > 0) {
 
-            $error[] = 'password not matched!';
+            while (($banned_row = mysqli_fetch_assoc($banned_result))) {
+                array_push($banned_emails, $banned_row['email']);
+            }
+        }
+
+
+        if (in_array($email, $banned_emails)) {
+            $error[] = 'user banned!';
         } else {
-            $insert = "INSERT INTO users(username, email, password, user_type) VALUE('$username', '$email', '$password', '$user_type')";
-            mysqli_query($conn, $insert);
-            header('location:login_form.php');
+            if ($password != $cpassword) {
+                $error[] = 'password not matched!';
+            } else {
+                $insert = "INSERT INTO users(username, email, password, user_type, reviews_removed) VALUE('$username', '$email', '$password', '$user_type', '0')";
+                mysqli_query($conn, $insert);
+                header('location:login_form.php');
+            }
         }
     }
 };
